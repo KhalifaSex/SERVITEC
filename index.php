@@ -1,7 +1,3 @@
-<?php
-session_start(); // Inicia la sesión
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,23 +17,19 @@ session_start(); // Inicia la sesión
         <ul>
             <li><a href="#" class="active">INICIO</a></li>
             <li><a href="#">SERVICIOS</a></li>
-            <?php
-            if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-                echo '<li><a href="php/boleta.php">BOLETAS</a></li>';
-                echo '<li><a href="php/agregarT.php">TÉCNICOS</a></li>';
-            }
-            ?>
+            <!-- Enlaces visibles solo si el usuario es admin -->
+            <!-- Aquí tienes dos ejemplos, uno si eres admin y otro si no -->
+            <li><a href="php/boleta.php">BOLETAS</a></li>
+            <li><a href="php/agregarT.php">TÉCNICOS</a></li>
         </ul>
     </nav>
 
     <div class="admin">
-        <?php
-        if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
-            echo '<button onclick="window.location.href=\'php/cerrar.php\'">CERRAR SESIÓN</button>';
-        } else {
-            echo '<button onclick="window.location.href=\'php/login.php\'">ADMINISTRADOR</button>';
-        }
-        ?>
+        <!-- Botón visible solo si el usuario es admin -->
+        <!-- Aquí tienes dos ejemplos, uno si eres admin y otro si no -->
+        <button onclick="window.location.href='php/cerrar.php'">CERRAR SESIÓN</button>
+        <!-- Para los no administradores -->
+        <!-- <button onclick="window.location.href='php/login.php'">ADMINISTRADOR</button> -->
     </div>
 </header>
 
